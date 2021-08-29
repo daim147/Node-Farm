@@ -19,6 +19,7 @@ let dataObj = JSON.parse(data).map((element) => {
 
 // ! SERVER
 const server = http.createServer((req, res) => {
+  console.log(req.url);
   const { query, search, pathname } = url.parse(req.url, true);
 
   // ! OVERVIEW DATA
@@ -57,8 +58,12 @@ const server = http.createServer((req, res) => {
     res.end("<h1>PAGE NOT FOUND</h1> ");
   }
 });
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
-server.listen(8000, () => {
+server.listen(port, () => {
   console.log("LISTENING");
 });
 
