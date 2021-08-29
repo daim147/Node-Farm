@@ -64,6 +64,7 @@ if (port == null || port == "") {
 }
 
 server.listen(port, () => {
+  console.log(port);
   console.log("LISTENING");
 });
 
